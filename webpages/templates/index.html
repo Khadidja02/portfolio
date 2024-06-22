@@ -1,0 +1,499 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>My Portfolio</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+  
+  <!-- Favicons -->
+  <link href="{% static '/img/favicon.png' %}" >
+  <link href="{% static '/img/apple-touch-icon.png' %}" >
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" >
+  
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'assets/vendor/animate.css/animate.min.css' %}" type="text/css" rel="stylesheet">
+  <link href="{% static 'assets/vendor/aos/aos.css' %}" type="text/css" rel="stylesheet">
+  <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" type="text/css" rel="stylesheet">
+  <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" type="text/css" rel="stylesheet">
+  <link href="{% static 'assets/vendor/boxicons/css/boxicons.min.css' %}"type="text/css" rel="stylesheet" >
+  <link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css' %}" type="text/css" rel="stylesheet">
+  <link href="{% static 'assets/vendor/remixicon/remixicon.css' %}"type="text/css" rel="stylesheet">
+  <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}"type="text/css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="{% static 'assets/css/style.css' %}"  rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+     document.addEventListener('DOMContentLoaded', function() {
+        const form = document.getElementById('contact-form');
+        const submitBtn = document.getElementById('submitBtn');
+
+        form.addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent default form submission behavior
+            const formData = new FormData(form);
+
+            // Send form data via AJAX
+            fetch(form.action, {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => {
+                if (response.ok) {
+                    return response.json(); // Assuming response is JSON
+                }
+                throw new Error('Network response was not ok.');
+            })
+            .then(data => {
+                // Handle successful response
+                alert('Votre message a été envoyé. Merci !');
+                form.reset(); // Reset form fields
+            })
+            .catch(error => {
+                // Handle error
+                console.error('There was an error in form submission:', error);
+                alert('There was an error in form submission. Please try again.');
+            });
+        });
+        
+    });
+  </script>
+
+  <!-- =======================================================
+  * Template Name: Selecao
+  * Template URL: https://bootstrapmade.com/selecao-bootstrap-template/
+  * Updated: Mar 17 2024 with Bootstrap v5.3.3
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top d-flex align-items-center  header-transparent ">
+    <div class="container d-flex align-items-center justify-content-between">
+      <div class="logo">
+        <h1 class="text-capitalize"><a href="{%static 'index.html' %}">{{first_name}}</a></h1>
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+      </div>
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto active" href="#hero">Accueil</a></li>
+          <li><a class="nav-link scrollto" href="#about">Apropos</a></li>
+          <li><a class="nav-link scrollto" href="#services">Services</a></li>
+          <li><a class="nav-link scrollto " href="#portfolio">Portfolio</a></li>
+           
+          <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex flex-column justify-content-end align-items-center">
+    <div id="heroCarousel" data-bs-interval="5000" class="container carousel carousel-fade" data-bs-ride="carousel">
+
+      <!-- Slide 1 -->
+      <div class="carousel-item active">
+        <div class="carousel-container">
+          <h2 class="animate__animated animate__fadeInDown">Bienvenue !</span></h2>
+
+          <h2 class="animate__animated animate__fadeInDown"> Je suis une  <span>{{profession}}</span></h2>
+          <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Cliquer Ici </a>
+        </div>
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="carousel-item">
+        <div class="carousel-container">
+          <h2 class="animate__animated animate__fadeInDown">Je suis {{first_name}} {{last_name}}</h2>
+          <p class="animate__animated animate__fadeInUp">Continuer de naviguer sur mon site pour plus savoir sur ce que je fais</p>
+          <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Savoir Plus</a>
+        </div>
+      </div>
+
+      
+      
+
+      <a class="carousel-control-prev" href="#heroCarousel" role="button" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon bx bx-chevron-left" aria-hidden="true"></span>
+      </a>
+
+      <a class="carousel-control-next" href="#heroCarousel" role="button" data-bs-slide="next">
+        <span class="carousel-control-next-icon bx bx-chevron-right" aria-hidden="true"></span>
+      </a>
+
+    </div>
+
+    <svg class="hero-waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28 " preserveAspectRatio="none">
+      <defs>
+        <path id="wave-path" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z">
+      </defs>
+      <g class="wave1">
+        <use xlink:href="#wave-path" x="50" y="3" fill="rgba(255,255,255, .1)">
+      </g>
+      <g class="wave2">
+        <use xlink:href="#wave-path" x="50" y="0" fill="rgba(255,255,255, .2)">
+      </g>
+      <g class="wave3">
+        <use xlink:href="#wave-path" x="50" y="9" fill="#fff">
+      </g>
+    </svg>
+
+  </section><!-- End Hero -->
+
+  <main id="main">
+
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about">
+      <div class="container">
+
+        <div class="section-title" data-aos="zoom-out">
+          <h2>Apropos</h2>
+          <p>Qui Suis-Je ? </p>
+        </div>
+
+        <div class="row content" data-aos="fade-up">
+          <div class="col-lg-15">
+            <p class="lh-lg">
+              {{description}}
+            </p>
+           
+          </div>
+          
+
+      </div>
+    </section><!-- End About Section -->
+
+    <!-- ======= Features Section ======= -->
+    <section id="features" class="features">
+      <div class="container">
+
+        <ul class="nav nav-tabs row d-flex justify-content-center">
+          
+          <li class="nav-item col-4" data-aos="zoom-in" data-aos-delay="100">
+            <a class="nav-link active show" data-bs-toggle="tab" href="#tab-2">
+              <i class="ri-body-scan-line"></i>
+              <h4 class="d-none d-lg-block">Site Vitrine</h4>
+            </a>
+          </li>
+          <li class="nav-item col-4" data-aos="zoom-in" data-aos-delay="200">
+            <a class="nav-link" data-bs-toggle="tab" href="#tab-3">
+              <i class="ri-window-line"></i>
+              <h4 class="d-none d-lg-block">Site Landing Page</h4>
+            </a>
+          </li>
+          <li class="nav-item col-4" data-aos="zoom-in" data-aos-delay="300">
+            <a class="nav-link" data-bs-toggle="tab" href="#tab-4">
+              <i class="ri-store-line"></i>
+              <h4 class="d-none d-lg-block">Site E-commerce</h4>
+            </a>
+          </li>
+        </ul>
+
+        <div class="tab-content" data-aos="fade-up">
+         
+          <div class="tab-pane active show" id="tab-2">
+            <div class="row">
+              <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
+                <h3 class="mb-3">Pourquoi opter pour un site Vitrine ?</h3>
+                <p class="lh-lg">
+                  Vous voulez mettre en valeur votre entreprise, 
+                  vos services ou votre portfolio ? Un site vitrine
+                   est la solution idéale pour vous offrir une présence en ligne 
+                   élégante et professionnelle. Ce type de site est parfait pour
+                    vous si vous souhaitez présenter vos informations de manière
+                     claire et attrayante, sans avoir besoin de vendre des produits directement. Les éléments clés comprennent :
+                </p>
+                
+                <ul>
+                  <li><i class="ri-check-double-line"></i> <span class="fw-bold"> Présence en ligne à l'échelle nationale:</span> Présentez vos produits et services pour attirer et informer efficacement les clients potentiels à travers tout le pays.</li>
+                  <li><i class="ri-check-double-line"></i> <span class="fw-bold"> Crédibilité et confiance:</span> Renforcez la crédibilité de votre entreprise avec une présentation professionnelle et informative.</li>
+                  <li><i class="ri-check-double-line"></i> <span class="fw-bold"> Accessibilité: </span> Facilitez l'accès des clients en fournissant des informations essentielles comme les horaires d'ouverture, l'emplacement et les coordonnées de contact.</li>
+                  <li><i class="ri-check-double-line"></i> <span class="fw-bold"> SEO: </span> Augmentez votre visibilité en ligne en créant un contenu optimisé pour les moteurs de recherche, vous permettant d'atteindre un large public.</li>
+
+                </ul>
+              </div>
+              <div class="col-lg-6 order-1 order-lg-2 text-center">
+                <img src="{%static 'assets/img/features-1.png' %}" alt="" class="img-fluid">
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane" id="tab-3">
+            <div class="row">
+              <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
+                <h3 class="mb-3">Pourquoi opter pour un site Landing Page  ?</h3>
+                <p class="lh-lg">
+                  Si vous menez une campagne marketing ou souhaitez
+                  capturer des leads de manière efficace,
+                   une Landing page est idéale pour
+                    maximiser vos conversions. 
+                    Ce site d'une seule page est
+                     spécialement conçu dans le but de promouvoir un produit,
+                      un service ou un événement particulier. Les éléments clés comprennent :
+                </p>
+                <ul>
+                  <li><i class="ri-check-double-line"></i><span class="fw-bold"> Incitation à l'action précise (CTA):</span> Guidez les visiteurs pour qu'ils accomplissent une action précise, comme s'abonner à une newsletter, télécharger un livre électronique gratuit, ou vous contacter sur WhatsApp.</li>
+                  <li><i class="ri-check-double-line"></i><span class="fw-bold">Contenu attractif:</span>  Utilisez des titres accrocheurs, un texte persuasif et des visuels attrayants pour captiver votre audience.</li>
+                  <li><i class="ri-check-double-line"></i><span class="fw-bold" > Preuve sociale:</span> Incorporez des témoignages, des avis ou des études de cas pour établir la confiance et la crédibilité avec votre audience.</li>
+                  <li><i class="ri-check-double-line"></i> <span class="fw-bold">Optimisation de l'efficacité marketing: </span> Optimisez vos campagnes publicitaires en diffusant des messages cohérents et pertinents, ce qui augmentera votre retour sur investissement.</li>
+
+                </ul>
+              </div>
+              <div class="col-lg-6 order-1 order-lg-2 text-center">
+                <img src="{%static 'assets/img/features-2.png' %}" alt="" class="img-fluid">
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane" id="tab-4">
+            <div class="row">
+              <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
+                <h3 class="mb-3">Pourquoi opter pour un site E-commerce ?</h3>
+                <p class="lh-lg">
+                  Pour étendre votre portée et augmenter les ventes de vos produits, un site de e-commerce est indispensable pour votre entreprise. Cette plateforme vous offre la possibilité d'atteindre une audience mondiale, de gérer efficacement votre inventaire et de garantir une expérience d'achat fluide pour vos clients. Les éléments clés comprennent :
+                </p>
+               
+                <ul>
+                  <li><i class="ri-check-double-line"></i> <span class="fw-bold">Présentation des produits:</span> Présentez vos produits avec des descriptions détaillées, des images de haute qualité et une tarification claire.</li>
+                  <li><i class="ri-check-double-line"></i> <span class="fw-bold">Accès global et facilité d'accès:</span> Touchez des clients à travers le pays et offrez-leur la possibilité de magasiner à tout moment.</li>
+                  <li><i class="ri-check-double-line"></i><span class="fw-bold">Réduction des dépenses:</span> Réduction des coûts opérationnels par rapport à un magasin physique traditionnel.</li>
+                  <li><i class="ri-check-double-line"></i><span class="fw-bold">Prises de décisions basées sur les données:</span> Utilisez les données sur le comportement des clients et les performances de vente pour optimiser vos stratégies.</li>
+
+
+
+                  </li>
+                </ul>
+              </div>
+              <div class="col-lg-6 order-1 order-lg-2 text-center">
+                <img src="{%static 'assets/img/features-3.png' %}" alt="" class="img-fluid">
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End Features Section -->
+
+    <!-- ======= Cta Section ======= -->
+    <section id="cta" class="cta">
+      <div class="container">
+
+        <div class="row justify-content-center" data-aos="zoom-out">
+          <div class="col-lg-10 text-center text-lg-center ">
+            <h3 class="text-center mb-4">Expertise Technologique</h3>
+            
+            <div class="flex row wrap justify-content-evenly mt-5  justify-content-center  " style="margin-left: 2%;">
+              {% for skill in skills%}
+              <div class="col-lg-3 mb-3 skills-aligning " style="width:200px"  data-aos="zoom-in-left">
+              <div class="uniform-image mb-3 ml-4 mt-3" style="background: url('{{skill.image.url }}')">
+                
+
+               </div>
+              <p class="fw-bold" style="letter-spacing: 0.15rem;">{{skill.skill_name}}</p>
+              </div>
+              {% endfor %}
+            </div>
+          </div>
+          
+        </div>
+
+      </div>
+    </section><!-- End Cta Section -->
+
+    <!-- ======= Services Section ======= -->
+    <section id="services" class="services">
+      <div class="container">
+
+        <div class="section-title" data-aos="zoom-out">
+          <h2>Services</h2>
+          <p>Ce que nous offrons</p>
+        </div>
+
+        <div class="row">
+          {% for service in services %}
+          <div class="col-lg-4 col-md-6 mt-5 mt-md-5">
+            <div class="icon-box" data-aos="zoom-in-left" data-aos-delay="{{ forloop.counter0|add:'100' }}">
+              <div class="icon"><i class="bi {{ service.icon }}" style="color: #{{ service.color_code }}"></i></div>
+              <h4 class="title"><a href="">{{ service.service_name }}</a></h4>
+              <p class="description">{{ service.description_services }}</p>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+    </section><!-- End Services Section -->
+
+    <!-- ======= Portfolio Section ======= -->
+    <section id="portfolio" class="portfolio">
+      <div class="container">
+
+        <div class="section-title" data-aos="zoom-out">
+          <h2>Portfolio</h2>
+          <p>Ce que nous avons réalisé</p>
+        </div>
+
+        <ul id="portfolio-flters" class="d-flex justify-content-end" data-aos="fade-up">
+          <li data-filter="*" class="filter-active">Tout</li>
+         <!--- <li data-filter=".filter-app">App</li>
+          <li data-filter=".filter-card">Card</li>
+          <li data-filter=".filter-web">Web</li>-->
+        </ul>
+
+        <div class="row portfolio-container" data-aos="fade-up">
+          {% if portfolio %}
+              {% for item in portfolio %}
+              <div class="col-lg-4 col-md-6 portfolio-item filter-{{ item.category }}">
+                  <div class="portfolio-img">
+                      <img src="{{ item.project_first_image.url }}" class="img-fluid" alt="{{ item.project_title }}">
+                  </div>
+                  <div class="portfolio-info">
+                      <h4>{{ item.project_title }}</h4>
+                      <p>{{ item.category }}</p>
+                      <a href="{{ item.project_first_image.url }}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="{{ item.project_title }}"><i class="bx bx-plus"></i></a>
+                      <a href="{% url 'portfolio_detail' item.pk %}" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+                  </div>
+              </div>
+              {% endfor %}
+          {% else %}
+              <p>No portfolio available.</p>  <!-- This will show if there are no portfolios -->
+          {% endif %}
+      </div>
+      
+        
+    </section><!-- End Portfolio Section -->
+
+
+    <!-- ======= Contact Section ======= -->
+    <section id="contact" class="contact">
+      <div class="container">
+
+        <div class="section-title" data-aos="zoom-out">
+          <h2>Contact</h2>
+          <p>Contactez moi</p>
+        </div>
+
+        <div class="row mt-5">
+
+          <div class="col-lg-4" data-aos="fade-right">
+            <div class="info">
+              <div class="address">
+                <i class="bi bi-geo-alt"></i>
+                <h4>Localisation:</h4>
+                <p>Algeria</p>
+              </div>
+
+              <div class="email">
+                <i class="bi bi-envelope"></i>
+                <h4>Email:</h4>
+                <p>{{email}}</p>
+              </div>
+
+              <div class="phone">
+                <i class="bi bi-phone"></i>
+                <h4>Communication:</h4>
+                <p>{{phone_number}}</p>
+              </div>
+
+            </div>
+
+          </div>
+          <div class="col-lg-8 mt-5 mt-lg-0" data-aos="fade-left">
+
+            <form action="{% url 'index' %}" method="post"  class="php-email-form" id="contact-form">
+              {% csrf_token %}
+              <div class="row">
+                <div class="col-md-6 form-group">
+                  <label>Nom</label>
+                  {{ form.name }}
+                </div>
+                <div class="col-md-6 form-group mt-3 mt-md-0">
+                  <label>Email</label>
+                  {{ form.email }}                  
+                </div>
+              </div>
+              <div class="form-group mt-3">
+                <label>Sujet</label>
+                {{ form.subject }}
+              </div>
+              <div class="form-group mt-3">
+                <label>Message</label>
+                {{ form.message }}              </div>
+            <!-- <div class="my-3">
+                <div class="loading">Loading</div>
+                <div class="error-message"></div>
+                <div class="sent-message">Your message has been sent. Thank you!</div>
+              </div>-->
+              {% if messages %}
+              <div class="my-3">
+                  {% for message in messages %}
+                      <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}">
+                          {{ message }}
+                      </div>
+                  {% endfor %}
+              </div>
+          {% endif %}
+              <div class="text-center"><button type="submit" id="submitBtn">Envoyer un message</button></div>
+            </form>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Contact Section -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="container">
+      <h3>{{first_name}}</h3>
+      <div class="social-links">
+        <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+        <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+        <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+        <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+        <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+      </div>
+      <div class="copyright">
+        &copy; Copyright <strong><span>{{first_name}} {{last_name}}</span></strong>. All Rights Reserved
+      </div>
+      <div class="credits">
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you purchased the pro version. -->
+        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/selecao-bootstrap-template/ -->
+        Designed by <a href="/">{{first_name}} {{last_name}}</a>
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="{%static 'assets/vendor/aos/aos.js'%}"></script>
+  <script src="{%static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js'%}"></script>
+  <script src="{%static 'assets/vendor/glightbox/js/glightbox.min.js'%}"></script>
+  <script src="{%static 'assets/vendor/isotope-layout/isotope.pkgd.min.js'%}"></script>
+  <script src="{%static 'assets/vendor/swiper/swiper-bundle.min.js'%}"></script>
+
+  <!-- Template Main JS File -->
+  <script src="{%static 'assets/js/main.js'%}"></script>
+
+</body>
+
+</html>
