@@ -9,16 +9,16 @@ from .forms import ContactForms
 
 def index_view(request):
     # Retrieve data for AboutMe
-    about_me_info = AboutMe.objects.first()
+    about_me_info = get_object_or_404(AboutMe)
     
     # Retrieve data for Skills
-    skills = Skills.objects.all()
+    skills = get_object_or_404(Skills)
     
     # Retrieve data for Services
-    services = Services.objects.all()
+    services = get_object_or_404(Services)
     
     # Retrieve data for Portfolio
-    portfolio = Portfolio.objects.all()
+    portfolio = get_object_or_404(Portfolio)
     print(f"Portfolio: {portfolio}") 
     # Handle contact form submission
     if request.method == 'POST':
@@ -53,7 +53,7 @@ def index_view(request):
 
 def portfolio_detail_view(request, pk):
     project = get_object_or_404(Portfolio, pk=pk)
-    about_me_info = AboutMe.objects.first()
+    about_me_info = get_object_or_404(AboutMe)
 
     context = {
         'project': project,
