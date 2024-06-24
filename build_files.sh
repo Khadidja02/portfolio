@@ -1,2 +1,16 @@
+#!/bin/bash
+
+# Create a virtual environment
+python3 -m venv env
+
+# Activate the virtual environment
+source env/bin/activate
+
+# Upgrade pip
+pip install --upgrade pip
+
+# Install dependencies
 pip install -r requirements.txt
-python3.11.4 manage.py collectstatic --noinput
+
+# Collect static files
+python manage.py collectstatic --noinput
