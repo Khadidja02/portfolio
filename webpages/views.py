@@ -12,13 +12,13 @@ def index_view(request):
     about_me_info = get_object_or_404(AboutMe)
     
     # Retrieve data for Skills
-    skills = get_object_or_404(Skills)
+    skills = Skills.objects.all()
     
     # Retrieve data for Services
-    services = get_object_or_404(Services)
+    services = Services.objects.all()
     
     # Retrieve data for Portfolio
-    portfolio = get_object_or_404(Portfolio)
+    portfolio = Portfolio.objects.all()
     print(f"Portfolio: {portfolio}") 
     # Handle contact form submission
     if request.method == 'POST':
