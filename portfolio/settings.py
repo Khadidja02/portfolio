@@ -30,7 +30,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-)1d#@up52ac5r6kva2)x4k3wh09pecm!ju8s+k9m=r2!d!dqc$'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [".vercel.app", "localhost"]
 
@@ -88,10 +88,10 @@ DATABASES = {
     'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
 }
 #DATABASES = {
-    #'default': {
-     #       'ENGINE': 'django.db.backends.sqlite3',
-      #      'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-       # }
+ #   'default': {
+  #          'ENGINE': 'django.db.backends.sqlite3',
+   #         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+   #     }
   #}
 
 MEDIA_URL = '/media/'
@@ -143,6 +143,7 @@ STATICFILES_DIRS = [
     BASE_DIR / 'webpages' / 'static',  # Updated this line
 ]
 STATIC_ROOT = BASE_DIR / 'staticfiles'
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
