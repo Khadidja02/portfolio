@@ -32,7 +32,7 @@ SECRET_KEY = 'django-insecure-)1d#@up52ac5r6kva2)x4k3wh09pecm!ju8s+k9m=r2!d!dqc$
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [".vercel.app", "localhost"]
+ALLOWED_HOSTS = [".vercel.app","*", "localhost"]
 
 
 # Application definition
@@ -141,7 +141,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
-    BASE_DIR / 'webpages' / 'static',  # Updated this line
+    BASE_DIR / 'webpages/static',  # Updated this line
 ]
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
