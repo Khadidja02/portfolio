@@ -20,7 +20,8 @@
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" >
-  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
   <!-- Vendor CSS Files -->
   <link href="{% static 'assets/vendor/animate.css/animate.min.css' %}" type="text/css" rel="stylesheet">
   <link href="{% static 'assets/vendor/aos/aos.css' %}" type="text/css" rel="stylesheet">
@@ -69,6 +70,48 @@
     });
   </script>
 
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Select all angle down icons    
+    var listItems = document.querySelectorAll('.nav-item');
+
+    // Variable to keep track of the currently displayed tab
+    var currentTabPane = null;
+    // Add click event listener to each icon
+    listItems.forEach(function(item) {
+      item.addEventListener('click', function() {
+        // Check if screen width is less than 992px
+        if (window.innerWidth < 992) {
+          // Get the corresponding tab ID
+          var tabId = this.getAttribute('data-tab-id');
+
+          // Toggle the 'show-content' class on the corresponding tab-pane
+          var tabPane = document.getElementById(tabId);
+          if (tabPane) {
+            // Hide the currently displayed tab pane, if any
+            if (currentTabPane && currentTabPane !== tabPane) {
+              currentTabPane.classList.remove('show-content');
+              currentTabPane.classList.add('tab-pane');
+            }
+
+            // Toggle the visibility of the clicked tab pane
+            if (tabPane.classList.contains('tab-pane')) {
+              tabPane.classList.remove('tab-pane');
+              tabPane.classList.add('show-content');
+              currentTabPane = tabPane;
+            } else {
+              tabPane.classList.remove('show-content');
+              tabPane.classList.add('tab-pane');
+              currentTabPane = null;
+            }
+          }
+        }
+      });
+    });
+  });
+</script>
+
+
   <!-- =======================================================
   * Template Name: Selecao
   * Template URL: https://bootstrapmade.com/selecao-bootstrap-template/
@@ -92,7 +135,7 @@
       <nav id="navbar" class="navbar">
         <ul>
           <li><a class="nav-link scrollto active" href="#hero">Accueil</a></li>
-          <li><a class="nav-link scrollto" href="#about">Apropos</a></li>
+          <li><a class="nav-link scrollto" href="#about">A propos</a></li>
           <li><a class="nav-link scrollto" href="#services">Services</a></li>
           <li><a class="nav-link scrollto " href="#portfolio">Portfolio</a></li>
            
@@ -114,7 +157,7 @@
           <h2 class="animate__animated animate__fadeInDown">Bienvenue !</span></h2>
 
           <h2 class="animate__animated animate__fadeInDown"> Je suis une  <span>{{profession}}</span></h2>
-          <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Cliquer Ici </a>
+          <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">En savoir plus </a>
         </div>
       </div>
 
@@ -122,8 +165,8 @@
       <div class="carousel-item">
         <div class="carousel-container">
           <h2 class="animate__animated animate__fadeInDown">Je suis {{first_name}} {{last_name}}</h2>
-          <p class="animate__animated animate__fadeInUp">Continuer de naviguer sur mon site pour plus savoir sur ce que je fais</p>
-          <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Savoir Plus</a>
+          <p class="animate__animated animate__fadeInUp">Pour en savoir plus sur mes services, je vous invite à explorer mon site.</p>
+          <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto"> En savoir plus</a>
         </div>
       </div>
 
@@ -164,7 +207,7 @@
       <div class="container">
 
         <div class="section-title" data-aos="zoom-out">
-          <h2>Apropos</h2>
+          <h2>A propos</h2>
           <p>Qui Suis-Je ? </p>
         </div>
 
@@ -184,34 +227,35 @@
     <section id="features" class="features">
       <div class="container">
 
-        <ul class="nav nav-tabs row d-flex justify-content-center">
+        <ul class="nav nav-tabs row d-flex justify-content-center features-div">
           
-          <li class="nav-item col-4" data-aos="zoom-in" data-aos-delay="100">
-            <a class="nav-link active show" data-bs-toggle="tab" href="#tab-2">
-              <i class="ri-body-scan-line"></i>
-              <h4 class="d-none d-lg-block">Site Vitrine</h4>
+          <li class="nav-item col-4 " data-aos="zoom-in" data-aos-delay="100" data-tab-id="tab-2">
+            <a class="nav-link list-features active show " data-bs-toggle="tab" href="#tab-2">
+              <i class=" mr-2 ri-body-scan-line "></i>
+              <h4 class="d-lg-block">Site Vitrine</h4>
             </a>
           </li>
-          <li class="nav-item col-4" data-aos="zoom-in" data-aos-delay="200">
-            <a class="nav-link" data-bs-toggle="tab" href="#tab-3">
-              <i class="ri-window-line"></i>
-              <h4 class="d-none d-lg-block">Site Landing Page</h4>
+          <li class="nav-item col-4 " data-aos="zoom-in" data-aos-delay="200" data-tab-id="tab-3">
+            <a class="nav-link list-features" data-bs-toggle="tab" href="#tab-3">
+              <i class="  mr-2 ri-window-line "></i>
+              <h4 class=" d-lg-block">Site Landing Page</h4>
             </a>
           </li>
-          <li class="nav-item col-4" data-aos="zoom-in" data-aos-delay="300">
-            <a class="nav-link" data-bs-toggle="tab" href="#tab-4">
-              <i class="ri-store-line"></i>
-              <h4 class="d-none d-lg-block">Site E-commerce</h4>
+          <li class="nav-item col-4 " data-aos="zoom-in" data-aos-delay="300" data-tab-id="tab-4">
+            <a class="nav-link list-features" data-bs-toggle="tab" href="#tab-4">
+              <i class="mr-2 ri-store-line" ></i>
+              <h4 class=" d-lg-block">Site E-commerce</h4>
             </a>
           </li>
         </ul>
 
         <div class="tab-content" data-aos="fade-up">
-         
+
           <div class="tab-pane active show" id="tab-2">
+            <h3 class="mb-3 ml-3 fw-bold">Pourquoi opter pour un site Vitrine ?</h3>
+
             <div class="row">
               <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
-                <h3 class="mb-3">Pourquoi opter pour un site Vitrine ?</h3>
                 <p class="lh-lg">
                   Vous voulez mettre en valeur votre entreprise, 
                   vos services ou votre portfolio ? Un site vitrine
@@ -235,9 +279,10 @@
             </div>
           </div>
           <div class="tab-pane" id="tab-3">
+            <h3 class="mb-3 ml-3 fw-bold">Pourquoi opter pour un site Landing Page  ?</h3>
+
             <div class="row">
               <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
-                <h3 class="mb-3">Pourquoi opter pour un site Landing Page  ?</h3>
                 <p class="lh-lg">
                   Si vous menez une campagne marketing ou souhaitez
                   capturer des leads de manière efficace,
@@ -261,9 +306,10 @@
             </div>
           </div>
           <div class="tab-pane" id="tab-4">
+            <h3 class="mb-3 ml-3 fw-bold">Pourquoi opter pour un site E-commerce ?</h3>
+
             <div class="row">
               <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
-                <h3 class="mb-3">Pourquoi opter pour un site E-commerce ?</h3>
                 <p class="lh-lg">
                   Pour étendre votre portée et augmenter les ventes de vos produits, un site de e-commerce est indispensable pour votre entreprise. Cette plateforme vous offre la possibilité d'atteindre une audience mondiale, de gérer efficacement votre inventaire et de garantir une expérience d'achat fluide pour vos clients. Les éléments clés comprennent :
                 </p>
@@ -393,7 +439,7 @@
               <div class="address">
                 <i class="bi bi-geo-alt"></i>
                 <h4>Localisation:</h4>
-                <p>Algeria</p>
+                <p>Algérie</p>
               </div>
 
               <div class="email">
@@ -462,13 +508,6 @@
   <footer id="footer">
     <div class="container">
       <h3>{{first_name}}</h3>
-      <div class="social-links">
-        <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-        <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-        <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-        <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-        <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
-      </div>
       <div class="copyright">
         &copy; Copyright <strong><span>{{first_name}} {{last_name}}</span></strong>. All Rights Reserved
       </div>
@@ -493,6 +532,9 @@
 
   <!-- Template Main JS File -->
   <script src="{%static 'assets/js/main.js'%}"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 </body>
 

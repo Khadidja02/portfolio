@@ -260,8 +260,35 @@ h6 {
   .navbar ul {
     display: none;
   }
-}
+  .features-div{
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+  .features-div li{
+    width: 80% !important;
+  }
+  .list-features{
+    justify-content: flex-start !important;
+  }
+  .tab-pane {
+    display: none !important; /* Initially hide all tab content */
+  }
+  
+  .show-content {
+    display: block !important; /* Show tab content when .show class is added */
+  }
+  .mr-2{
+    margin-right: 10px;
 
+  }
+  .icon-features{
+    display: block !important;
+    margin-left: 50px;
+  }
+}
+.icon-features{
+  display: none;
+}
 .navbar-mobile {
   position: fixed;
   overflow: hidden;
