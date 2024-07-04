@@ -1,4 +1,5 @@
 from django.db import models
+from .storage import OverwriteStorage
 
 # Create your models here.
 class AboutMe(models.Model):
@@ -15,7 +16,7 @@ class AboutMe(models.Model):
 
 class Skills(models.Model):
     skill_name = models.CharField(max_length=250)
-    image = models.ImageField(upload_to='skill_pictures/', blank=True, null=True)
+    image = models.ImageField(upload_to='skill_pictures/',storage=OverwriteStorage(), blank=True, null=True)
 
     def __str__(self):
         return self.skill_name
@@ -32,7 +33,7 @@ class Services(models.Model):
 class Portfolio(models.Model):  # Corrected the class name here
     project_title = models.CharField(max_length=250)
     project_description = models.TextField(blank=True, null=True)
-    project_first_image = models.ImageField(upload_to='project_pictures/', blank=True, null=True)
+    project_first_image = models.ImageField(upload_to='project_pictures/',storage=OverwriteStorage(), blank=True, null=True)
     project_image = models.ManyToManyField('ProjectImage', blank=True)
     category = models.CharField(max_length=100)
     project_url = models.URLField(max_length=300)
@@ -41,7 +42,7 @@ class Portfolio(models.Model):  # Corrected the class name here
         return self.project_title
 
 class ProjectImage(models.Model):
-    image = models.ImageField(upload_to='project_pictures/')
+    image = models.ImageField(upload_to='project_pictures/',storage=OverwriteStorage())
 
     def __str__(self):
         return self.image.name        
