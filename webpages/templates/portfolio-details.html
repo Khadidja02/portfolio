@@ -6,13 +6,13 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Portfolio Details </title>
+  <title>{{ project.project_title }}</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="{% static 'assets/img/favicon.png' %}" rel="icon">
-  <link href="{% static 'assets/img/apple-touch-icon.png'%}" rel="apple-touch-icon">
+  <link href="{% static 'assets/img/icon.jpg' %}" rel="icon">
+  <link href="{% static 'assets/img/icon.jpg'%}" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
@@ -54,7 +54,7 @@
       <nav id="navbar" class="navbar">
         <ul>
           <li><a class="nav-link scrollto " href="/">Accueil</a></li>
-          <li><a class="nav-link scrollto" href="/#about">Apropos</a></li>
+          <li><a class="nav-link scrollto" href="/#about">A propos</a></li>
           <li><a class="nav-link scrollto" href="/#services">Services</a></li>
           <li><a class="nav-link scrollto " href="/#portfolio">Portfolio</a></li>
           <li><a class="nav-link scrollto" href="/#contact">Contact</a></li>
@@ -71,10 +71,10 @@
       <div class="container">
 
         <div class="d-flex justify-content-between align-items-center">
-          <h2>Détails du Portfolio</h2>
+          <h2>{{ project.project_title }}</h2>
           <ol>
             <li><a href="/">Home</a></li>
-            <li>Détails du Portfolio</li>
+            <li>{{ project.project_title }}</li>
           </ol>
         </div>
 
@@ -106,7 +106,7 @@
               </ul>
             </div>
             <div class="portfolio-description">
-              <h2>{{ project.project_title }}</h2>
+              <h2>Description</h2>
               <p>
                 {{ project.project_description }}
               </p>
