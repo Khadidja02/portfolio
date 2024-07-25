@@ -86,7 +86,7 @@ WSGI_APPLICATION = 'portfolio.wsgi.application'
 DATABASE_URL = os.environ.get("DATABASE_URL")
 print(f"DATABASE_URL: {DATABASE_URL}")
 DATABASES = {
-    'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
+    'default': dj_database_url.config(default=os.getenv('DATABASE_URL'))
 }
 #DATABASES = {
  #   'default': {
